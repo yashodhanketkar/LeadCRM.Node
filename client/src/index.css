@@ -154,6 +154,7 @@
     @apply bg-background text-foreground;
   }
 
+
   label {
     @apply text-foreground-muted text-left mt-1;
   }
@@ -161,14 +162,25 @@
 
   th,
   td {
+    @apply bg-white text-black;
     @apply border-border border-1 rounded-sm w-1/4 text-left p-2;
 
     &.select {
       @apply p-0;
     }
 
+    button,
     select {
-      @apply rounded-none;
+      color: inherit;
+      background: inherit;
+      border: 1px solid var(--border);
+      @apply m-1;
+    }
+
+    button:hover {
+      color: inherit;
+      background: inherit;
+      opacity: 0.5;
     }
   }
 }

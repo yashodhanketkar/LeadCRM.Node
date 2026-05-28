@@ -1,4 +1,4 @@
-import type { LeadStatus, LeadTypeDTO, LeadType } from "../lib/types";
+import type { LeadStatus, LeadTypeDTO, LeadType } from "@/lib/types";
 import { client } from "./client";
 
 export const getLeads = async (): Promise<LeadType[]> => {

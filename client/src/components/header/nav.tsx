@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { authStore } from "../../store/auth";
+import { authStore } from "@/store/auth";
 import Cookies from "js-cookie";
 
 export const NavBar = () => {

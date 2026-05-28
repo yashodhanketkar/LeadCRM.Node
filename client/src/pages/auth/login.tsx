@@ -1,5 +1,5 @@
-import { login } from "../../api/user";
-import { authStore } from "../../store/auth";
+import { login } from "@/api/user";
+import { authStore } from "@/store/auth";
 import { AuthForm } from "./form";
 import type { AuthSchemaType } from "./schema";
 

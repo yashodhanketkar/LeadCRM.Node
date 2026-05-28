@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { LeadsForm } from "./form";
+import { Plus } from "lucide-react";
 
 export const CreateLeads = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -24,10 +25,11 @@ export const CreateLeads = () => {
   return (
     <>
       <button
-        className="fixed bottom-10 right-10 p-2 rounded-md cursor-pointer"
+        className="fixed bottom-20 right-10 p-2 rounded-md cursor-pointer inline-flex items-center justify-center gap-1"
         onClick={openDialog}
       >
-        Create Lead
+        <Plus />
+        <span>Lead</span>
       </button>
       <dialog
         ref={dialogRef}

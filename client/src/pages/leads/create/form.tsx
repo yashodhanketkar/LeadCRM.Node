@@ -1,7 +1,7 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { LeadsSchema, type LeadsType } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createLead } from "../../../api/lead";
+import { createLead } from "@/api/lead";
 
 export const LeadsForm = ({ close }: { close: () => void }) => {
   const {

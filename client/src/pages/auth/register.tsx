@@ -1,4 +1,4 @@
-import { register } from "../../api/user";
+import { register } from "@/api/user";
 import { AuthForm } from "./form";
 import type { AuthSchemaType } from "./schema";
 

@@ -1,4 +1,4 @@
-import type { UserTypeDTO } from "../lib/types";
+import type { UserTypeDTO } from "@/lib/types";
 import { client } from "./client";
 
 export const login = async (data: UserTypeDTO) => {
