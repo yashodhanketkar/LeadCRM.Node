@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-foreground-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-shadow: var(--shadow);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-button-text: var(--button-text);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --bg: oklch(0.920 0.010 287.4);
+  --text: oklch(0.250 0.030 302.6);
+  --accent: oklch(0.550 0.220 301.0);
+  --border: oklch(0.850 0.040 280.9);
+  --secondary: oklch(0.580 0.200 338.2);
+  --success: oklch(0.520 0.180 145.1);
+  --warning: oklch(0.650 0.160 75.5);
+  --destructive: oklch(0.550 0.220 29.7);
+  --button-text: oklch(1.0 0 0);
+  --text-muted: oklch(0.400 0.030 302.6);
+
+  --shadow:
+    var(--border) 0 10px 15px -3px, var(--border) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  --radius: 0.625rem;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--foreground);
+  background: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+.dark {
+  --bg: oklch(0.288 0.040 287.4);
+  --text: oklch(0.977 0.026 302.6);
+  --accent: oklch(0.742 0.218 301.0);
+  --border: oklch(0.560 0.125 280.9);
+  --secondary: oklch(0.754 0.214 338.2);
+  --success: oklch(0.871 0.242 145.1);
+  --warning: oklch(0.834 0.143 75.5);
+  --destructive: oklch(0.682 0.205 29.7);
+  --button-text: oklch(0.25 0.08 306.8);
+  --text-muted: oklch(0.827 0.026 302.6);
+
+  --shadow:
+    var(--border) 0 10px 15px -3px, var(--border) 0 4px 6px -2px;
+}
+
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-border/50 transition-colors duration-100 ease-in-out;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-accent font-bold;
+  }
+
+  h4,
+  h5,
+  h5 {
+    @apply font-bold;
+  }
+
+  p {
+    @apply text-left max-w-[72ch] mx-auto;
+
+    &.muted {
+      @apply text-foreground-muted
+    }
+  }
+
+  hr {
+    @apply my-4 mx-auto max-w-[100ch] border-border/50;
+  }
+
+
+  a {
+    @apply text-secondary;
+  }
+
+  button {
+    @apply bg-accent px-2 py-1 rounded font-bold cursor-pointer text-button-text;
+    @apply focus:outline-none focus:ring-1 focus:ring-secondary hover:bg-accent/50;
+
+    &.ot-button {
+      color: inherit;
+      background: inherit;
+      @apply outline-accent outline-1 hover:bg-accent/10;
+
+      &:disabled {
+        @apply outline-accent/50 outline-1 bg-background/50 text-foreground/50;
+      }
+    }
+
+    &:disabled {
+      @apply bg-accent/50 text-button-text/50;
+    }
+  }
+
+  textarea,
+  select,
+  input {
+    @apply w-full border-border dark:border-border/25 border-1 rounded-md px-4 py-2;
+    @apply focus:outline-none focus:ring-1 focus:ring-secondary;
+    @apply bg-background text-foreground;
+  }
+
+  label {
+    @apply text-foreground-muted text-left mt-1;
+  }
+
+
+  th,
+  td {
+    @apply border-border border-1 rounded-sm w-1/4 text-left p-2;
+
+    &.select {
+      @apply p-0;
+    }
+
+    select {
+      @apply rounded-none;
+    }
+  }
+}
